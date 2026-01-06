@@ -25,29 +25,6 @@ Aplicación web desarrollada en **React + TypeScript** que consume la **PokéAPI
 
 ---
 
-## 🧱 Arquitectura del proyecto
-
-El proyecto sigue el patrón **Atomic Design**, separando la UI en niveles de responsabilidad:
-
-```text
-src/
- ├── components/
- │   ├── atoms/        # Botones, inputs, textos, iconos
- │   ├── molecules/    # Cards, search bars, chips
- │   ├── organisms/    # Grids, layouts complejos
- ├── pages/            # Home, Details, Favorites
- ├── graphql/
- │   ├── queries.ts    # Queries GraphQL
- ├── context/
- │   └── FavoritesContext.tsx
- ├── utils/
- │   ├── types.ts      # Tipos TypeScript
- │   ├── const.ts      # Constantes globales
- ├── styles/           # CSS plano (sin frameworks)
- └── router.tsx
-
----
-
 ## 🧠 Decisiones arquitectónicas
 
 - **Apollo Client** se utiliza para el manejo de estado remoto y caché.
@@ -83,6 +60,30 @@ src/
 
 ---
 
+## 🧱 Arquitectura del proyecto
+
+El proyecto sigue el patrón **Atomic Design**, separando la UI en niveles de responsabilidad:
+
+```text
+src/
+ ├── components/
+ │   ├── atoms/        # Botones, inputs, textos, iconos
+ │   ├── molecules/    # Cards, search bars, chips
+ │   ├── organisms/    # Grids, layouts complejos
+ ├── pages/            # Home, Details, Favorites
+ ├── graphql/
+ │   ├── queries.ts    # Queries GraphQL
+ ├── context/
+ │   └── FavoritesContext.tsx
+ ├── utils/
+ │   ├── types.ts      # Tipos TypeScript
+ │   ├── const.ts      # Constantes globales
+ ├── styles/           # CSS plano (sin frameworks)
+ └── router.tsx
+```
+
+---
+
 ## ⚙️ Ejecución del proyecto en local
 
 ### 📋 Requisitos previos
@@ -95,13 +96,16 @@ src/
 ```bash
 git clone https://github.com/kamt1128/pokedex.git
 cd pokedex
+```
 
 ### 📦 Instalación de dependencias
 
 ```bash
 npm install
+```
 
 ### ▶️ Ejecutar el proyecto en modo desarrollo
 
 ```bash
 npm run dev
+```
