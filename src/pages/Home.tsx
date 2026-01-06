@@ -5,6 +5,10 @@ import { SortButton } from "../components/atoms/SortButton";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
 
+/** Images imports */
+import pokeball from "../assets/pokeball.svg";
+import starWhiteIcon from "../assets/star-white-icon.svg";
+
 export const HomePage = () => {
   const [search, setSearch] = useState("");
   const [orderBy, setOrderBy] = useState<"name" | "id">("id");
@@ -26,11 +30,11 @@ export const HomePage = () => {
       <div className="home">
         <header className="header">
           <div className="brand">
-            <img src="src/assets/pokeball.svg" alt="Pokeball" className="brand__logo" />
+            <img src={pokeball} alt="Pokeball" className="brand__logo" />
             <h1 className="brand__title">Pokédex</h1>
             <div className="favorites-link">
               <Link to="/favorites">
-                <img src="src/assets/star-white-icon.svg" alt="Favorites" className="favorites-link__icon" />
+                <img src={starWhiteIcon} alt="Favorites" className="favorites-link__icon" />
               </Link>
             </div>
           </div>

@@ -4,6 +4,10 @@ import { PokemonCard } from "../molecules/PokemonCard";
 import { PokemonGridSkeleton } from "./PokemonGridSkeleton";
 import type { GetPokemonsSearchResponse, GetPokemonsSearchVariables, Pokemon } from "../../utils/types";
 import { PAGINATION_SIZE } from "../../utils/const";
+/** Images imports */
+import arrowLeft from "../../assets/arrow-left.svg";
+import arrowRight from "../../assets/arrow-right.svg";
+
 
 type Props = {
   orderBy: "name" | "id";
@@ -43,10 +47,10 @@ export const PokemonGrid = ({ orderBy, search, paginationPage, setPaginationPage
       {data.pokemon.length >= PAGINATION_SIZE && (
         <div className="pagination">
           <button className="pagination-button" onClick={() => setPaginationPage(Math.max(paginationPage - 1, 0))} disabled={paginationPage === 0}>
-            <img src="/src/assets/arrow-left.svg" alt="" className="pagination-button__icon" />
+            <img src={arrowLeft} alt="" className="pagination-button__icon" />
           </button>
           <button className="pagination-button" onClick={() => setPaginationPage(paginationPage + 1)} disabled={data.pokemon.length < PAGINATION_SIZE}>
-            <img src="/src/assets/arrow-right.svg" alt="" className="pagination-button__icon" />
+            <img src={arrowRight} alt="" className="pagination-button__icon" />
           </button>
         </div>
       )}

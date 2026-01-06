@@ -6,6 +6,18 @@ import { PokemonNumber } from "../components/atoms/PokemonNumber";
 import { STATS_LABELS, TYPE_COLORS } from "../utils/const";
 import "../styles/details.css";
 import { DetailsSkeleton } from "../components/organisms/DetailsSkeleton";
+/** Images imports */
+import arrowBack from "../assets/arrow-back.svg";
+import backgroundPokeball from "../assets/background-pokeball.svg";
+import arrowLeftWhite from "../assets/arrow-left-white.svg";
+import arrowRightWhite from "../assets/arrow-right-white.svg";
+import notFoundImage from "../assets/not-found-image.svg";
+import weightIcon from "../assets/weight-icon.svg";
+import heightIcon from "../assets/height-icon.svg";
+
+
+
+
 
 export const DetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,21 +41,21 @@ export const DetailsPage = () => {
   return (
     <div className="container">
       <div className="details-page" style={{ backgroundColor: lightenBackground }}>
-        <img className="background-image" src="/src/assets/background-pokeball.svg" alt="Background Pokeball" />
+        <img src={backgroundPokeball} alt="Background Pokeball" className="background-image" />
         <div className="header-page">
-          <img src="/src/assets/arrow-back.svg" alt="Back button" className="header-page__back-button" onClick={() => navigate("/")}/>
+          <img src={arrowBack} alt="Back button" className="header-page__back-button" onClick={() => navigate("/")}/>
           <h1 className="header-page__pokemon-name">{pokemon.name}</h1>
           <span className="header-page__pokemon-number"><PokemonNumber id={pokemon.id} /></span>
         </div>
         <div className="image-container">
           {pokemon.id > 1
-            ? ( <img src="/src/assets/arrow-left-white.svg" alt="Arrow left" className="image-container__arrow" onClick={() => navigate(`/pokemon/${pokemon.id - 1}`)}/>)
+            ? ( <img src={arrowLeftWhite} alt="Arrow left" className="image-container__arrow" onClick={() => navigate(`/pokemon/${pokemon.id - 1}`)}/>)
             : (<div style={{width: "16px", height: "16px"}}></div>)
           }
           <div className="picture">
-            <img src={pokemon.pokemonsprites[0].sprites ?? "/src/assets/not-found-image.svg"} alt={pokemon.name} className="picture__image" />
+            <img src={pokemon.pokemonsprites[0].sprites ?? notFoundImage} alt={pokemon.name} className="picture__image" />
           </div>
-          <img src="/src/assets/arrow-right-white.svg" alt="Arrow right" className="image-container__arrow" onClick={() => navigate(`/pokemon/${pokemon.id + 1}`)}/>
+          <img src={arrowRightWhite} alt="Arrow right" className="image-container__arrow" onClick={() => navigate(`/pokemon/${pokemon.id + 1}`)}/>
         </div>
         <div className="details-card">
             <div className="chips-abilities">
@@ -58,14 +70,14 @@ export const DetailsPage = () => {
               <div className="about-info-grid">
                 <div className="about-info-grid-item">
                   <span className="about-info-grid-item-value">
-                    <img src="/src/assets/weight-icon.svg" alt="Weight icon" className="about-info-grid-item-value__icon" />
+                    <img src={weightIcon} alt="Weight icon" className="about-info-grid-item-value__icon" />
                     <label className="about-info-grid-item-value__text">{pokemon.weight / 10} kg</label>
                   </span>
                   <p className="about-info-grid-item__label">Weight</p>
                 </div>
                 <div className="about-info-grid-item">
                   <span className="about-info-grid-item-value">
-                    <img src="/src/assets/height-icon.svg" alt="Height icon" className="about-info-grid-item-value__icon" />
+                    <img src={heightIcon} alt="Height icon" className="about-info-grid-item-value__icon" />
                     <label className="about-info-grid-item-value__text">{pokemon.height / 10} m</label>
                   </span>
                   <p className="about-info-grid-item__label">Height</p>

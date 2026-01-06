@@ -1,4 +1,7 @@
 import { useState } from "react";
+/** Images imports */
+import numeralSymbol from "../../assets/numeral-symbol.svg";
+import alphabeticalSymbol from "../../assets/alphabetical-symbol.svg";
 
 type SortType = "id" | "name";
 
@@ -10,12 +13,12 @@ type Props = {
 
 export const SortButton = ({ value, onChange }: Props) => {
   const [showModal, setShowModal] = useState(false);
-  const [sortSymbol, setSortSymbol] = useState("numeral-symbol.svg");
+  const [sortSymbol, setSortSymbol] = useState(numeralSymbol);
 
   return (
     <div className="sort">
       <button onClick={() => setShowModal(!showModal)} className="sort-button">
-        <img src={`src/assets/${sortSymbol}`} alt="Sort symbol" className="sort-button__symbol" />
+        <img src={sortSymbol} alt="Sort symbol" className="sort-button__symbol" />
       </button>
       { showModal && 
         ( 
@@ -31,7 +34,7 @@ export const SortButton = ({ value, onChange }: Props) => {
                     value="id"
                     checked={value === "id"}
                     className="radio-button__input"
-                    onChange={() => { onChange("id"); setShowModal(!showModal); setSortSymbol("numeral-symbol.svg")}} />
+                    onChange={() => { onChange("id"); setShowModal(!showModal); setSortSymbol(numeralSymbol)}} />
                   <label className="radio-button__label">Number</label>
                   </div>
                 <div className="radio-button">
@@ -41,7 +44,7 @@ export const SortButton = ({ value, onChange }: Props) => {
                     value="name"
                     checked={value === "name"}
                     className="radio-button__input"
-                    onChange={() => { onChange("name"); setShowModal(!showModal); setSortSymbol("alphabetical-symbol.svg")}} />
+                    onChange={() => { onChange("name"); setShowModal(!showModal); setSortSymbol(alphabeticalSymbol)}} />
                   <label className="radio-button__label">Name</label>
                 </div>
               </div>
