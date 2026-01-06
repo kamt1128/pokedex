@@ -10,7 +10,7 @@ import './styles/global.css'
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <BrowserRouter basename="/pokedex">
         <FavoritesProvider>
           <AppRouter />
         </FavoritesProvider>
