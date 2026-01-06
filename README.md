@@ -1,22 +1,6 @@
 # 🧩 Pokédex App – React + GraphQL
 
-Aplicación web desarrollada en **React + TypeScript** que consume la **PokéAPI GraphQL** para construir un Pokédex interactivo.  
-El proyecto fue realizado como **prueba técnica frontend**, siguiendo estrictamente las indicaciones solicitadas y aplicando buenas prácticas de arquitectura, rendimiento y experiencia de usuario.
-
----
-
-## 🎯 Objetivo de la prueba
-
-- Consumir la **PokéAPI usando GraphQL**
-- Mostrar un listado de Pokémon ordenable
-- Implementar búsqueda y validación de datos
-- Visualizar el detalle de un Pokémon
-- Permitir marcar Pokémon como favoritos
-- Mantener persistencia de datos
-- Seguir buenas prácticas de React
-- No usar frameworks de CSS
-- Implementar Atomic Design
-- Desplegar la aplicación públicamente
+Aplicación web desarrollada en **React + TypeScript** que consume la **PokéAPI GraphQL** para construir un Pokédex interactivo.
 
 ---
 
@@ -61,3 +45,63 @@ src/
  │   ├── const.ts      # Constantes globales
  ├── styles/           # CSS plano (sin frameworks)
  └── router.tsx
+
+---
+
+### 🧠 Decisiones arquitectónicas
+
+- **Apollo Client** se utiliza para el manejo de estado remoto y caché.
+- **Context API** se emplea únicamente para favoritos, evitando sobreuso.
+- **TypeScript** garantiza tipado fuerte desde la API hasta la UI.
+- **CSS plano** para demostrar dominio de estilos sin dependencias externas.
+- **Hooks puros** siguiendo las reglas oficiales de React.
+
+---
+
+## ⭐ Funcionalidades principales
+
+### 📋 Listado de Pokémon
+- Paginación controlada por tamaño constante.
+- Ordenamiento por `id` o `name` usando GraphQL (`order_by`).
+- Skeleton loading para mejorar UX.
+
+### 🔍 Búsqueda
+- Búsqueda por nombre parcial.
+- Búsqueda directa por ID.
+- Reinicio automático de paginación al cambiar filtros.
+
+### 📄 Detalle del Pokémon
+- Información general (altura, peso, tipos, habilidades).
+- Estadísticas base.
+- Imagen oficial.
+- Color de fondo dinámico basado en la especie.
+
+### ❤️ Favoritos
+- Agregar / quitar Pokémon de favoritos.
+- Persistencia usando **LocalStorage**.
+- Vista dedicada para favoritos.
+
+---
+
+## ⚙️ Ejecución del proyecto en local
+
+### 📋 Requisitos previos
+
+- **Node.js** versión 18 o superior
+- **npm** o **yarn**
+
+### 📥 Clonar el repositorio
+
+```bash
+git clone https://github.com/kamt1128/pokedex.git
+cd pokedex
+
+### 📦 Instalación de dependencias
+
+```bash
+npm install
+
+### ▶️ Ejecutar el proyecto en modo desarrollo
+
+```bash
+npm run dev
