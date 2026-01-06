@@ -48,7 +48,7 @@ src/
 
 ---
 
-### 🧠 Decisiones arquitectónicas
+## 🧠 Decisiones arquitectónicas
 
 - **Apollo Client** se utiliza para el manejo de estado remoto y caché.
 - **Context API** se emplea únicamente para favoritos, evitando sobreuso.
