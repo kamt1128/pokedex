@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# 🧩 Pokédex App – React + GraphQL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada en **React + TypeScript** que consume la **PokéAPI GraphQL** para construir un Pokédex interactivo.  
+El proyecto fue realizado como **prueba técnica frontend**, siguiendo estrictamente las indicaciones solicitadas y aplicando buenas prácticas de arquitectura, rendimiento y experiencia de usuario.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objetivo de la prueba
 
-## React Compiler
+- Consumir la **PokéAPI usando GraphQL**
+- Mostrar un listado de Pokémon ordenable
+- Implementar búsqueda y validación de datos
+- Visualizar el detalle de un Pokémon
+- Permitir marcar Pokémon como favoritos
+- Mantener persistencia de datos
+- Seguir buenas prácticas de React
+- No usar frameworks de CSS
+- Implementar Atomic Design
+- Desplegar la aplicación públicamente
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔗 **Aplicación desplegada en GitHub Pages**  
+👉 https://kamt1128.github.io/pokedex/
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tecnologías utilizadas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- ⚛️ **React 18**
+- 🧠 **TypeScript**
+- ⚡ **Vite**
+- 🔗 **Apollo Client v4**
+- 🧩 **GraphQL**
+- 🗂️ **Atomic Design**
+- 🌐 **React Router DOM**
+- 💾 **LocalStorage**
+- 🚀 **GitHub Actions (CI/CD)**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧱 Arquitectura del proyecto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+El proyecto sigue el patrón **Atomic Design**, separando la UI en niveles de responsabilidad:
+
+```text
+src/
+ ├── components/
+ │   ├── atoms/        # Botones, inputs, textos, iconos
+ │   ├── molecules/    # Cards, search bars, chips
+ │   ├── organisms/    # Grids, layouts complejos
+ ├── pages/            # Home, Details, Favorites
+ ├── graphql/
+ │   ├── queries.ts    # Queries GraphQL
+ ├── context/
+ │   └── FavoritesContext.tsx
+ ├── utils/
+ │   ├── types.ts      # Tipos TypeScript
+ │   ├── const.ts      # Constantes globales
+ ├── styles/           # CSS plano (sin frameworks)
+ └── router.tsx
