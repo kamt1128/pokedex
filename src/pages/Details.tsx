@@ -16,9 +16,6 @@ import weightIcon from "../assets/weight-icon.svg";
 import heightIcon from "../assets/height-icon.svg";
 
 
-
-
-
 export const DetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();

@@ -4,10 +4,10 @@ import { PokemonGrid } from "../components/organisms/PokemonGrid";
 import { SortButton } from "../components/atoms/SortButton";
 import { Link } from "react-router-dom";
 import "../styles/home.css";
-
 /** Images imports */
 import pokeball from "../assets/pokeball.svg";
 import starWhiteIcon from "../assets/star-white-icon.svg";
+
 
 export const HomePage = () => {
   const [search, setSearch] = useState("");

@@ -6,7 +6,6 @@ import homeButton from "../assets/home-button.svg";
 import pokeball from "../assets/pokeball.svg";
 
 
-
 export const FavoritesPage = () => {
 
   return (
